@@ -39,3 +39,4 @@
 # ignore vendor/bundle
 /vendor/bundle
 /vender/bundle
+basic/
