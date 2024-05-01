@@ -1,6 +1,5 @@
 <header>
   <nav class='navbar navbar-expand-lg navigation navbar-light bg-light'>
-    <!-- link_toを使う形に修正してください -->
     <%= link_to root_path, class: 'navbar-brand' do %>
       <%= image_tag 'logo.png' %>
     <% end %>
@@ -13,34 +12,26 @@
     <div class='collapse navbar-collapse' id='navbarSupportedContent'>
       <ul class='navbar-nav ms-auto main-nav align-items-center'>
         <li class='nav-item dropdown dropdown-slide'>
-          <!-- link_toを使う形に修正してください -->
-          <%= link_to '掲示板', '#', class: 'nav-link dropdown-toggle', data: { bs_toggle: 'dropdown' }, aria: { haspopup: true, expanded: false }  %>
+          <%= link_to (t 'header.board'), '#', class: 'nav-link dropdown-toggle', data: { bs_toggle: 'dropdown' }, aria: { haspopup: true, expanded: false }  %>
           <div class='dropdown-menu dropdown-menu-end'>
-          <!-- link_toを使う形に修正してください -->
-            <%= link_to '掲示板一覧', '#', class: 'dropdown-item' %>
-            <!-- link_toを使う形に修正してください -->
-            <%= link_to '掲示板作成', '#', class: 'dropdown-item' %>
+            <%= link_to (t 'header.board_index'), '#', class: 'dropdown-item' %>
+            <%= link_to (t 'header.create_board'), '#', class: 'dropdown-item' %>
           </div>
         </li>
 
         <li class='nav-item'>
-          <!-- link_toを使う形に修正してください -->
-          <%= link_to 'ブックマーク一覧', '#', class: 'nav-link' %>
+          <%= link_to (t 'header.bookmark_index'), '#', class: 'nav-link' %>
         </li>
 
         <li class='nav-item dropdown dropdown-slide'>
-          <!-- link_toを使う形に修正してくださいdata属性、area属性の書き方は次の通りです。-->
-          <!-- data: { bs_toggle: 'dropdown' }, aria: { haspopup: 'true', expanded: 'false' } -->
           <%= link_to '#', class: 'nav-link', id: 'header-profile', data: { bs_toggle: 'dropdown' }, aria: { haspopup: true, expanded: false } do %>
-            <!-- image_tagを使う形に修正してください -->
             <%= image_tag 'sample.jpg', class: 'rounded-circle mr15',width: 40, height: 40 %>
           <% end %>
           <div class='dropdown-menu dropdown-menu-end'>
-            <div class='dropdown-item'>らんてっく たろう</div>
+            <div class='dropdown-item'><%= t 'activerecord.models.user' %></div>
             <div class='dropdown-divider'></div>
-            <!-- link_toを使う形に修正してください -->
-            <%= link_to 'プロフィール', '#', class: 'dropdown-item' %>
-            <%= link_to 'ログアウト', logout_path, class: 'dropdown-item', data: { turbo_method: :delete } %>
+            <%= link_to (t 'header.profile'), '#', class: 'dropdown-item' %>
+            <%= link_to (t 'header.logout'), logout_path, class: 'dropdown-item', data: { turbo_method: :delete } %>
           </div>
         </li>
       </ul>

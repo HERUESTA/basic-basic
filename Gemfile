@@ -42,6 +42,9 @@ gem "dartsass-rails", "~> 0.4.0"
 # Use login to provide authentication
 gem 'sorcery', '0.16.3'
 
+# Use language packs for translations
+gem 'rails-i18n', '~> 7.0.0'
+
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
