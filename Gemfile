@@ -45,6 +45,9 @@ gem 'sorcery', '0.16.3'
 # Use language packs for translations
 gem 'rails-i18n', '~> 7.0.0'
 
+#Use name_of_person gem to get full name 
+gem 'draper', '4.0.2'
+
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
