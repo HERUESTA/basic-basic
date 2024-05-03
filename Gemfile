@@ -45,11 +45,11 @@ gem 'sorcery', '0.16.3'
 # Use language packs for translations
 gem 'rails-i18n', '~> 7.0.0'
 
-#Use name_of_person gem to get full name 
+# Use name_of_person gem to get full name 
 gem 'draper', '4.0.2'
 
-# Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
-# gem "image_processing", "~> 1.2"
+# Use Active Storage variant
+gem 'carrierwave', '2.2.2'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
@@ -62,8 +62,6 @@ group :development, :test do
   gem "rubocop-checkstyle_formatter"
   gem "rspec-rails"
   gem "rspec_junit_formatter"
-  gem 'faker'
-  gem 'debug'
 end
 
 group :development do
