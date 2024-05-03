@@ -38,6 +38,9 @@ module V3BasicRailsBasic
     # デフォルトのロケールを日本語に設定
     config.i18n.default_locale = :ja
 
+    # タイムゾーンを日本時間に設定
+    config.time_zone = 'Tokyo'
+
     config.generators do |g|
       # helperファイルの設定
       g.helper false
