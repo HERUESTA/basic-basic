@@ -4,6 +4,7 @@
       <h1>掲示板作成</h1>
       <!-- ここからform_withを使う形に修正してください -->
       <%= form_with model: @board, local: true do |b| %>
+        <%= render 'shared/error_messages', object: b.object %>
         <div class="mb-3">
           <%= b.label :title, "タイトル"  %>
           <%= b.text_field :title, class: "form-control" %>

@@ -3,6 +3,7 @@
     <div class='col-md-10 col-lg-8 mx-auto'>
     <h1><%= (t "users.new.title") %></h1>
       <%= form_with model: @user do |f| %>
+        <%= render 'shared/error_messages', object: f.object %>
         <div class='form-group'>
         <%= f.label :last_name %>
           <%= f.text_field :last_name, class: 'form-control' %>
