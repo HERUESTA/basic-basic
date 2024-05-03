@@ -63,6 +63,7 @@ group :development, :test do
   gem "rspec-rails"
   gem "rspec_junit_formatter"
   gem 'faker'
+  gem 'debug'
 end
 
 group :development do
