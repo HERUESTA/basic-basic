@@ -1,0 +1,47 @@
+<div class="container pt-5">
+  <div class="row mb-3">
+    <div class="col-lg-8 offset-lg-2">
+      <h1>掲示板詳細</h1>
+      <!-- 掲示板内容 -->
+      <article class="card">
+        <div class="card-body">
+          <div class='row'>
+            <div class='col-md-3'>
+            <!-- image_tagを使う形に修正してください -->
+              <%= image_tag @board.board_image.url, class:'card-img-top', size:'300x200' %>
+            </div>
+            <div class='col-md-9'>
+              <h3 style='display: inline;'>
+              <%= @board.title %>
+              </h3>
+              <ul class="list-inline">
+                <li class="list-inline-item">by<%= @board.user.decorate.full_name %></li>
+                <li class="list-inline-item"><%= l @board.created_at, format: :long %></li>
+              </ul>
+              <div class='d-flex justify-content-end'>
+              <!-- ここからlink_toを使う形に修正してください -->
+                <%= link_to "#", id: "button-edit-25" do %>
+                  <i class='bi bi-pencil-fill'></i>
+                <% end %>
+                
+                <!-- ここまでlink_toを使う形に修正してください -->
+                <!-- ここからlink_toを使う形に修正してください -->
+                <%= link_to "#", id: "button-delete-25" do %>
+                  <i class='bi bi-trash-fill'></i>
+                <% end %>
+                <!-- ここまでlink_toを使う形に修正してください -->
+                </div>
+              </div>
+            </div>
+            <%= simple_format(@board.body) %>
+          </div>
+        </article>
+      </div>
+  </div>
+
+  <!-- コメントフォーム -->
+  <%= render partial: "shared/form", locals: { comment: @comment } %>
+  
+  <!-- コメントエリア -->
+  <%= render partial: "shared/comment", locals: { comments: @comments } %>
+</div>

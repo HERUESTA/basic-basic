@@ -2,14 +2,13 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Debug Rails",
       "type": "rdbg",
+      "name": "Debug current file with rdbg",
       "request": "launch",
-      "cwd": "${workspaceRoot}",
-      "script": "bin/rails server",
+      "script": "${file}",
       "args": [],
       "askParameters": true,
-      "useBundler": true,
+      "useTerminal": true
     }
   ]
 }
