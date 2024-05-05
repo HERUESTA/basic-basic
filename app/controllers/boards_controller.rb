@@ -5,7 +5,7 @@ class BoardsController < ApplicationController
 
   def index
     @boards = Board.all.includes(:user)
-  end 
+  end
 
   def new
     @board = Board.new
@@ -30,7 +30,7 @@ class BoardsController < ApplicationController
     # !をつけ、削除に失敗した場合例外を発生させる
     @board.destroy!
     # 削除に成功した場合、掲示板一覧ページにリダイレクトする
-    redirect_to boards_path, flash: { success: '掲示板を削除しました' }
+    redirect_to boards_path, flash: { success: '掲示板を削除しました' }, status: :see_other
   end
 
   def create
@@ -62,10 +62,10 @@ class BoardsController < ApplicationController
   end
 
   def check_user
-    # current_userはDeviseなどの認証システムを使っている場合に利用可能  
-    if @board.nil? || current_user.id != @board.user_id
-      raise ActiveRecord::RecordNotFound
-    end
+    # current_userはDeviseなどの認証システムを使っている場合に利用可能
+    return unless @board.nil? || current_user.id != @board.user_id
+
+    raise ActiveRecord::RecordNotFound
   end
 
   def board_params
