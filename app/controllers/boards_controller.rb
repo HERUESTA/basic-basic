@@ -1,6 +1,6 @@
 class BoardsController < ApplicationController
   before_action :set_board, only: %i[edit update destroy]
-  before_action :check_user, only: %i[edit update destroy]
+  before_action :check_user, only: %i[update destroy]
   before_action :require_login
 
   def index
@@ -62,7 +62,7 @@ class BoardsController < ApplicationController
   end
 
   def check_user
-    # current_userはDeviseなどの認証システムを使っている場合に利用可能    # @boardがnilでないことも確認
+    # current_userはDeviseなどの認証システムを使っている場合に利用可能  
     if @board.nil? || current_user.id != @board.user_id
       raise ActiveRecord::RecordNotFound
     end

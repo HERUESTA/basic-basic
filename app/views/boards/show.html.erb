@@ -9,7 +9,6 @@
         <div class="card-body">
           <div class='row'>
             <div class='col-md-3'>
-            <!-- image_tagを使う形に修正してください -->
               <%= image_tag @board.board_image.url, class:'card-img-top', size:'300x200' %>
             </div>
             <div class='col-md-9'>
@@ -26,13 +25,10 @@
                   <i class='bi bi-pencil-fill'></i>
                 <% end %>
                 
-                <!-- ここまでlink_toを使う形に修正してください -->
-                <!-- ここからlink_toを使う形に修正してください -->
-                <%= link_to boards_path, id: "button-delete-#{@board.id}",
-                            data: { turbo_method: :delete, turbo_confirm: '削除しますか' } do %>
-                  <i class='bi bi-trash-fill'></i>
+                <%= link_to board_path(@board), id: "button-delete-#{@board.id}",
+                data: { "turbo-method": :delete, "turbo-confirm": '削除しますか？' } do %>
+                <i class='bi bi-trash-fill'></i>
                 <% end %>
-                <!-- ここまでlink_toを使う形に修正してください -->
                 </div>
               </div>
             </div>
