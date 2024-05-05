@@ -10,14 +10,21 @@
               <%= link_to board.title, board_path(board) %>
               </h4>
             <div class="ms-auto">
-              <%= link_to "#", id: "button-edit-3" do %>
-                <i class="bi bi-pencil-fill"></i>
-              <% end %>
-              <%= link_to "#", id: "button-delete-3", method: :delete, data: {confirm: ""} do %>
-                <i class="bi bi-trash-fill"></i>
-              <% end %>
+            <% if current_user.present? %>
+              <% if board.user == current_user %>
+                <%= link_to edit_board_path(board), id: "button-edit-#{board.id}" do %>
+                  <i class="bi bi-pencil-fill"></i>
+                <% end %>
+                <%= link_to boards_path(board), id: "button-delete-#{board.id}",
+                            data: { turbo_method: :delete, turbo_confirm: '削除しますか' } do %>
+                  <i class='bi bi-trash-fill'></i>
+                <% end %>
+                <% end %>
+                <% end %>
             </div>
-          </div>
+             
+            </div>
+            
             <ul class="list-inline">
               <li><i class="bi bi-person"></i> <%= board.user.decorate.full_name %></li>
               <li><i class="bi bi-calendar"></i><%= l board.created_at, format: :long %></li>

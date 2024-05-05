@@ -1,4 +1,4 @@
-<% content_for(:title, @board.title + ' | RUNTEQ BOARD APP') %>
+<% content_for(:title, @board.title) %>
 
 <div class="container pt-5">
   <div class="row mb-3">
@@ -28,7 +28,8 @@
                 
                 <!-- ここまでlink_toを使う形に修正してください -->
                 <!-- ここからlink_toを使う形に修正してください -->
-                <%= link_to "#", id: "button-delete-25" do %>
+                <%= link_to boards_path, id: "button-delete-#{@board.id}",
+                            data: { turbo_method: :delete, turbo_confirm: '削除しますか' } do %>
                   <i class='bi bi-trash-fill'></i>
                 <% end %>
                 <!-- ここまでlink_toを使う形に修正してください -->
