@@ -55,6 +55,11 @@ class BoardsController < ApplicationController
     end
   end
 
+  # ブックマーク一覧ページを表示する
+  def bookmarks
+    @boards = current_user.bookmark_boards.includes(:user).order(created_at: :desc)
+  end
+
   private
 
   def set_board
