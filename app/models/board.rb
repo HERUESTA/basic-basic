@@ -9,6 +9,6 @@ class Board < ApplicationRecord
   validates :body, presence: true, length: { maximum: 65_535 }
 
   def bookmark_by?(user)
-    bookmarks.where(user_id: user.id).exists?
+    bookmarks.exists?(user_id: user.id)
   end
 end
