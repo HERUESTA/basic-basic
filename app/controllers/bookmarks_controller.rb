@@ -12,12 +12,17 @@ class BookmarksController < ApplicationController
   def create
     @bookmark = current_user.bookmarks.build(board_id: params[:board_id])
     @bookmark.save!
-    redirect_to boards_path, flash: { success: 'ブックマークしました' }
+    respond_to do |format|
+      format.turbo_stream
+    end
   end
 
   def destroy
-    current_user.bookmarks.find_by(board_id: params[:id]).destroy!
-    redirect_to boards_path, flash: { success: 'ブックマークを外しました' }, status: :see_other
+    @bookmark = current_user.bookmarks.find_by(board_id: params[:id])
+    @bookmark.destroy!
+    respond_to do |format|
+      format.turbo_stream
+    end
   end
 
   def bookmark_params

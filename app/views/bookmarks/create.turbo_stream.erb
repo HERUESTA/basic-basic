@@ -1,0 +1,3 @@
+<%= turbo_stream.replace "bookmark-button-for-board-#{@bookmark.board_id}" do %>
+  <%= render partial: 'shared/unbookmark', locals: { board: @bookmark.board, bookmarked: true  } %>
+<% end %>

@@ -54,6 +54,9 @@ gem 'carrierwave', '2.2.2'
 # Use modal_daialog
 gem 'data-confirm-modal'
 
+# User Ajax
+gem 'turbo-rails', "1.1.1"
+
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
