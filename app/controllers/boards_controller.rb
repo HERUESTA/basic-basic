@@ -27,9 +27,7 @@ class BoardsController < ApplicationController
 
   def destroy
     @board = Board.find(params[:id])
-    # !をつけ、削除に失敗した場合例外を発生させる
     @board.destroy!
-    # 削除に成功した場合、掲示板一覧ページにリダイレクトする
     redirect_to boards_path, flash: { success: '掲示板を削除しました' }, status: :see_other
   end
 

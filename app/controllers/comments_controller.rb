@@ -4,21 +4,27 @@ class CommentsController < ApplicationController
   def create
     @board = Board.find(params[:board_id])
     @comment = @board.comments.build(comment_params)
-    @comment.user = current_user # ここでuser_idを紐づける
+    @comment.user = current_user
 
-    if @comment.save
-      redirect_to board_path(@board), flash: { success: 'コメントを作成しました' }
-    else
-      @comments = @board.comments.includes(:user)
-      flash.now[:warning] = 'コメントを作成出来ませんでした'
-      render :'boards/show', status: :unprocessable_entity
+    @comment.save
+    @comment = Comment.new
+    @comments = @board.comments.includes(:user).order(created_at: :desc)
+    respond_to do |format|
+      format.turbo_stream
+    end
+  end
+
+  def destroy
+    @comment = Comment.find_by(id: params[:id])
+    @comment.destroy!
+    respond_to do |format|
+      format.turbo_stream { render status: :see_other }
     end
   end
 
   private
 
   def comment_params
-    # コメントの作成に必要なパラメーターを指定します
     params.require(:comment).permit(:body)
   end
 end
