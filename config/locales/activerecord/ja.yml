@@ -14,3 +14,6 @@ ja:
         body: 本文
       comment:
         body: コメント
+    errors:
+      messages:
+        blank: 'を入力してください'

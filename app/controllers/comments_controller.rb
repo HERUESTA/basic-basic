@@ -6,8 +6,11 @@ class CommentsController < ApplicationController
     @comment = @board.comments.build(comment_params)
     @comment.user = current_user
 
-    @comment.save
-    @comment = Comment.new
+    if @comment.save
+      @comment = Comment.new
+    else
+      flash.now[:alert] = @comment.errors.full_messages.join(', ')
+    end
     @comments = @board.comments.includes(:user).order(created_at: :desc)
     respond_to do |format|
       format.turbo_stream
