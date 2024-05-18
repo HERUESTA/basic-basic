@@ -4,7 +4,7 @@ class BoardsController < ApplicationController
   before_action :require_login
 
   def index
-    @boards = Board.all.includes(:user)
+    @boards = Board.all.includes(:user).page(params[:page]).per(20)
   end
 
   def new
@@ -55,7 +55,7 @@ class BoardsController < ApplicationController
 
   # ブックマーク一覧ページを表示する
   def bookmarks
-    @boards = current_user.bookmark_boards.includes(:user).order(created_at: :desc)
+    @boards = current_user.bookmark_boards.includes(:user).order(created_at: :desc).page(params[:page]).per(20)
   end
 
   private

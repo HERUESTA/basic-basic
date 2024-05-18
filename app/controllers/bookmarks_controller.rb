@@ -2,7 +2,7 @@ class BookmarksController < ApplicationController
   skip_before_action :require_login
 
   def index
-    @bookmarks = Bookmark.where(user_id: current_user.id)
+    @bookmarks = Bookmark.where(user_id: current_user.id).page(params[:page]).per(20)
   end
 
   def show

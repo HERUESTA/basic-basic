@@ -39,6 +39,9 @@ gem "jsbundling-rails"
 # gem "sassc-rails"
 gem "dartsass-rails", "~> 0.4.0"
 
+# Use Uglifier as compressor for JavaScript assets
+gem 'kaminari', "1.2.2"
+
 # Use login to provide authentication
 gem 'sorcery', '0.16.3'
 

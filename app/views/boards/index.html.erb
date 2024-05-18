@@ -16,6 +16,7 @@
       <div class="row">
         <% if @boards.present? %>
           <%= render partial: "shared/board", collection: @boards, as: :board %>
+          <%= paginate @boards %>
         <% else %>
           <p>掲示板がありません</p>
         <% end %>         
