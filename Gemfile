@@ -60,6 +60,9 @@ gem 'data-confirm-modal'
 # User Ajax
 gem 'turbo-rails', "1.1.1"
 
+# search
+gem 'ransack', "3.2.1"
+
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
