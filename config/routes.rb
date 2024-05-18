@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
   root 'static_pages#top'
 
-  resources :users, only: %i[new create]
+  resources :users, only: %i[new create] 
+      get 'profile', to: 'users#show'
+      get 'profile/edit', to: 'users#edit', as: 'edit_profile'
+      patch 'profile/update', to: 'users#update', as: 'update'
 
   get 'login', to: 'user_sessions#new'
   post 'login', to: 'user_sessions#create'

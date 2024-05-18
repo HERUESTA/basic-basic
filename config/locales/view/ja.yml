@@ -17,6 +17,13 @@ ja:
     new:
       title: ユーザー登録
       to_login_page: ログインページへ
+  profiles:
+    show:
+      title: プロフィール
+      edit: 編集
+    edit:
+      title: プロフィール編集
+      update: 更新
   boards:
     index:
       title: 掲示板一覧
