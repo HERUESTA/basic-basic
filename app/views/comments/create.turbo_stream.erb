@@ -1,0 +1,13 @@
+<% if @comment.errors.any? %>
+  <%= turbo_stream.replace "comment-form" do %>
+    <%= render partial: 'shared/form', locals: { comment: @comment, board: @board } %>
+  <% end %>
+<% else %>
+  <%= turbo_stream.replace "comment-form" do %>
+    <%= render partial: 'shared/form', locals: { comment: Comment.new, board: @board } %>
+  <% end %>
+
+  <%= turbo_stream.replace "comments" do %>
+    <%= render partial: 'shared/comment', locals: { comments: @comments } %>
+  <% end %>
+<% end %>

@@ -39,11 +39,29 @@ gem "jsbundling-rails"
 # gem "sassc-rails"
 gem "dartsass-rails", "~> 0.4.0"
 
+# Use Uglifier as compressor for JavaScript assets
+gem 'kaminari', "1.2.2"
+
 # Use login to provide authentication
 gem 'sorcery', '0.16.3'
 
-# Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
-# gem "image_processing", "~> 1.2"
+# Use language packs for translations
+gem 'rails-i18n', '~> 7.0.0'
+
+# Use name_of_person gem to get full name 
+gem 'draper', '4.0.2'
+
+# Use Active Storage variant
+gem 'carrierwave', '2.2.2'
+
+# Use modal_daialog
+gem 'data-confirm-modal'
+
+# User Ajax
+gem 'turbo-rails', "1.1.1"
+
+# search
+gem 'ransack', "3.2.1"
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem

@@ -1,11 +1,11 @@
 module SystemHelper
-  def login_as_general
-    general_user = create(:user)
+  def login_as(user)
     visit root_path
     click_link "ログイン"
-    fill_in 'Email', with: general_user.email
-    fill_in 'Password', with: '12345678'
+    fill_in 'メールアドレス', with: user.email
+    fill_in 'パスワード', with: '12345678'
     click_button 'ログイン'
+    Capybara.assert_current_path("/boards", ignore_query: true)
   end
 end
 

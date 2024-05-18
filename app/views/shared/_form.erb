@@ -1,0 +1,20 @@
+<div class="row mb-3" id="comment-form">
+  <div class="col-lg-8 offset-lg-2">   
+    <div id="new-comment">
+      <%= form_with model: [board, comment], url: board_comments_path(board), local: false do |b| %> 
+        <% if comment.errors.any? %>
+          <div id="error_explanation">
+            <ul>
+              <% comment.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+        <%= b.label :body, "コメント"%>
+        <%= b.text_area :body, class: "form-control mb-3", rows: "4", placeholder: "コメント"%>
+        <%= b.submit "投稿", class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+</div>
