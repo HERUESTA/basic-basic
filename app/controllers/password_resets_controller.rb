@@ -5,11 +5,11 @@ class PasswordResetsController < ApplicationController
 
   def create
     @user = User.find_by(email: params[:email])
-  
+
     # 有効期限つきのリセットコードを生成し、ユーザーにメールで送信する
     @user&.deliver_reset_password_instructions!
     redirect_to login_path, flash: { success: 'パスワードリセット手順を送信しました' }
-    end
+  end
 
   def edit
     @token = params[:id]
