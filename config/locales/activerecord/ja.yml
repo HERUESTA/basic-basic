@@ -17,3 +17,6 @@ ja:
     errors:
       messages:
         blank: 'を入力してください'
+  user_mailer:
+    reset_password_email:
+      subject: "パスワードリセット"
