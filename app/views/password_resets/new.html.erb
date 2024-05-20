@@ -1,0 +1,8 @@
+<% content_for(:title, 'パスワードリセット申請') %>
+<%= form_with url: password_resets_path, local: true, data: {turbo_method: :post} do |form| %>  
+  <div class="field">
+    <%= form.label :email %><br />
+    <%= form.text_field :email %>
+    <%= form.submit "送信" %>
+  </div>
+<% end %>

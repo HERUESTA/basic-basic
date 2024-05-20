@@ -37,9 +37,13 @@ Rails.application.configure do
   config.active_storage.service = :local
 
   # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
 
-  config.action_mailer.perform_caching = false
+  #この一行により、letter_opener_webでmailが送られる
+  config.action_mailer.delivery_method = :letter_opener_web
+
+  config.action_mailer.perform_deliveries = true
+  #mailの送り場所を指定
+  config.action_mailer.default_url_options = { host: 'localhost:3000' }
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
