@@ -1,10 +1,8 @@
 class ApplicationController < ActionController::Base
   before_action :require_login
-  add_flash_types :success, :success, :warning, :danger
-
-  private
+  add_flash_types :success, :danger
 
   def not_authenticated
-    redirect_to login_path, flash: { warning: 'ログインしてください' }
+    redirect_to login_path, danger: t('ログインしてください')
   end
 end

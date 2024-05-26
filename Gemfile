@@ -21,6 +21,9 @@ gem "jbuilder"
 # constanize
 gem 'config'
 
+#scss
+gem 'sassc'
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 

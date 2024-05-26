@@ -1,4 +1,4 @@
-class User < ApplicationRecord
+class  User  < ApplicationRecord
   authenticates_with_sorcery!
   mount_uploader :avatar, AvatarUploader
 
@@ -6,6 +6,8 @@ class User < ApplicationRecord
   has_many :boards, dependent: :destroy
   has_many :bookmarks, dependent: :destroy
   has_many :bookmark_boards, through: :bookmarks, source: :board
+
+  enum role: { general: 0, admin: 1 }
 
   validates :password, length: { minimum: 3 }, if: -> { new_record? || changes[:crypted_password] }
   validates :password, confirmation: true, if: -> { new_record? || changes[:crypted_password] }
