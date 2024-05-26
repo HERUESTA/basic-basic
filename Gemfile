@@ -38,12 +38,16 @@ gem "bootsnap", require: false
 
 gem "jsbundling-rails"
 
+gem 'enum_help'
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 gem "dartsass-rails", "~> 0.4.0"
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'kaminari', "1.2.2"
+
+gem 'kaminari-bootstrap'
 
 # Use login to provide authentication
 gem 'sorcery', '0.16.3'

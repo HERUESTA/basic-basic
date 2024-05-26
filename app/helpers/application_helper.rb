@@ -7,4 +7,8 @@ module ApplicationHelper
   def admin_title(title)
     page_title(title, admin: true)
   end
+
+  def active_if(path)
+    path == controller_path ? 'active' : ''
+  end
 end

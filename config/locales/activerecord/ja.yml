@@ -1,19 +1,40 @@
 ja:
+  defaults:
+    flash_message:
+      updated: "%{item}を更新しました"
+      not_updated: "%{item}を更新できませんでした"
+      deleted: "%{item}を削除しました"
+    edit: "編集"
+    delete: "削除"
+    show: "詳細"
+    search_word: "検索"
+    unspecified: "指定なし"
+    delete_confirm: "削除しますか？"
+  enums: 
+      user: 
+        role: 
+          general: "一般"
+          admin: "管理者"
   activerecord:
     models:
-      user: ユーザー
+      user: "ユーザー"
+      board: "掲示板"
     attributes:
+      id: "ID"
+      created_at: "作成日時"
+      updated_at: "更新日時"
       user:
-        email: メールアドレス
-        last_name: 姓
-        first_name: 名
-        password: パスワード
-        password_confirmation: パスワード確認
+        email: "メールアドレス"
+        last_name: "姓"
+        first_name: "名"
+        password: "パスワード"
+        password_confirmation: "パスワード確認"
+        role: "権限"
       board:
-        title: タイトル
-        body: 本文
+        title: "タイトル"
+        body: "本文"
       comment:
-        body: コメント
+        body: "コメント"
     errors:
       messages:
         blank: 'を入力してください'
