@@ -52,9 +52,11 @@ ja:
         login: ログイン
       create:
         success: ログインしました
-        failure: ログインに失敗しました
+        failure: 権限がありません
       destroy:
         success: ログアウトしました
     dashboards:
       index:
         title: ダッシュボード
+    base_controller:
+      no_permission: 権限がありません
