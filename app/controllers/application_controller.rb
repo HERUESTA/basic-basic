@@ -3,6 +3,6 @@ class ApplicationController < ActionController::Base
   add_flash_types :success, :danger
 
   def not_authenticated
-    redirect_to login_path, danger: t('ログインしてください')
+    redirect_to login_path, success: 'ログインしてください'
   end
 end

@@ -5,11 +5,11 @@ class Admin::BaseController < ApplicationController
   private
 
   def not_authenticated
-    flash[:warning] = t('defaults.flash_message.require_login')
+    flash[:success] = 'ログインしてください'
     redirect_to admin_login_path
   end
 
   def check_admin
-    redirect_to root_path, danger: t('defaults.flash_message.not_authorized') unless current_user.admin?
+    redirect_to root_path, success: '権限がありません' unless current_user.admin?
   end
 end

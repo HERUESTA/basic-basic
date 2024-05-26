@@ -1,4 +1,4 @@
-class  User  < ApplicationRecord
+class User < ApplicationRecord
   authenticates_with_sorcery!
   mount_uploader :avatar, AvatarUploader
 
